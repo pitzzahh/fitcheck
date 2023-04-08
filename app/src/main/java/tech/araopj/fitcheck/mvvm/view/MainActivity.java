@@ -16,19 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private static final DataService<UserProfile> service = new DataService<>(new UserDAO());
 
     public MainActivity() {
-        Database.builder()
-                .url(getFilesDir().getPath() + "/test")
-                .username("testUser")
-                .password("testPass")
-                .build()
-                .setDataSource();
-        service.create(new UserProfile(
-                "Peter",
-                (byte) 20,
-                170,
-                50,
-                Gender.MALE
-        ));
+
     }
 
     public static DataService<UserProfile> getService() {
@@ -38,6 +26,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        try {
+            Database.builder()
+                    .url(getFilesDir().getPath() + "/test")
+                    .username("testUser")
+                    .password("testPass")
+                    .build()
+                    .setDataSource();
+            service.create(new UserProfile(
+                    "Peter",
+                    (byte) 20,
+                    170,
+                    50,
+                    Gender.MALE
+            ));
+        } catch (Exception ignored) {}
+
         TextView result = findViewById(R.id.result);
         for (UserProfile userProfile : service.read()) {
             result.setText(userProfile.getName());
