@@ -94,4 +94,16 @@ public class UserProfile {
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "UserProfile{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", gender=" + gender +
+                '}';
+    }
 }

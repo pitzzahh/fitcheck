@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView result = findViewById(R.id.result);
         for (UserProfile userProfile : service.read()) {
-            result.setText(userProfile.getName());
+            result.setText(userProfile.toString());
         }
         setContentView(R.layout.activity_main);
     }
