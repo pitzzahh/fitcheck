@@ -5,12 +5,15 @@ import tech.araopj.fitcheck.mvvm.view.MainActivity;
 
 public class UserProfile {
 
-    private final int id;
+    private int id;
     private String name;
     private byte age;
     private double height; // in meters
     private double weight; // in kilograms
     private Gender gender;
+
+    public UserProfile() {
+    }
 
     @SuppressWarnings("unchecked")
     public UserProfile(String name, byte age, double height, double weight, Gender gender) {
